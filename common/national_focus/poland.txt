@@ -9299,14 +9299,15 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			effect_tooltip = {
-				create_country_leader = {
-					name = "Stefan II Waza"
-					desc = "POLITICS_WAZA_II_DESC"
-					picture = GFX_portrait_Stefan_II_Waza
-					expire = "1965.1.1"
-					ideology = oligarchism
-					traits = {
+				set_cosmetic_tag = POL_SWE_kingdom
+				add_country_leader_role = {
+					character = "POL_stefan_waza_king"
+					country_leader = {
+						ideology=oligarchism
+						traits = { }
+						expire="1965.1.1.1"
 					}
+					promote_leader = yes
 				}
 			}
 		}

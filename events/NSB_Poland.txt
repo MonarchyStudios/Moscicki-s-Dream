@@ -1515,7 +1515,7 @@ country_event = {
 				}
 			}
 		}
-		# promote_character = POL_waza_king
+		promote_character = POL_stefan_waza_king
 		set_party_name = { 
 			ideology = neutrality 
 			long_name = POL_waza_party
@@ -1525,7 +1525,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = achievement_POL_elected_monarch
 			news_event = {
-				id = nsb_news.6
+				id = nsb_news.1001
 				days = 1
 			}
 		}
@@ -1558,6 +1558,29 @@ country_event = {
 
 
 add_namespace = NSB_poland_monarchist_events
+
+# MOD
+country_event = {
+	id = NSB_poland_monarchist_events.5
+	title = NSB_poland_monarchist_events.5.t
+	desc = NSB_poland_monarchist_events.5.desc
+	picture = GFX_report_event_generic_riot
+
+	is_triggered_only = yes
+
+	option = {
+		name = NSB_poland_monarchist_events.1001.a
+		ai_chance = {
+
+		}
+		FROM = {
+			
+		}
+
+		hidden_effect = {
+			news_event = { id = nsb_news.1001 }
+		}
+	}
 
 # Romania/Lithuania made aware of Poland claiming them
 country_event = {
