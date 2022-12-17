@@ -9423,10 +9423,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			effect_tooltip = {
-				limit = {
-					has_character = POL_stefan_ii_waza
+				if = {
+					limit = {
+						has_character = POL_stefan_ii_waza
+					}
+					promote_character = POL_stefan_ii_waza
 				}
-				promote_character = POL_stefan_ii_waza
 			}
 		}
 	}
@@ -9461,7 +9463,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-
+			
 		}
 	}
 
