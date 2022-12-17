@@ -1,14 +1,13 @@
 characters = {
-	POL_stefan_waza_king = {
-		name="Stefan II Waza"
-		portraits = {
-			civilian = {
-				large="GFX_portrait_Stefan_II_Waza"
+	POL_stefan_ii_waza={
+		name=POL_stefan_ii_waza
+		portraits={
+			civilian={
+				large="GFX_portrait_POL_karl_albrecht"
 			}
 		}
-		country_leader = {
+		country_leader={
 			ideology=oligarchism
-			traits = { }
 			expire="1965.1.1.1"
 			id=-1
 		}

@@ -68,7 +68,7 @@ spriteTypes = {
 	}
 
 	SpriteType = {
-		name = "GFX_focus_POL_waza_house"
+		name = "GFX_focus_POL_waza"
 		texturefile = "gfx/interface/goals/pol/md_goal_waze.dds"
 	}
 

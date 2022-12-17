@@ -648,6 +648,75 @@ focus_tree = {
 		}
 	}
 	
+
+	focus = {
+		id = POL_huta_stalowa_wola_mill
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = POL_fill_the_railways_gaps }
+		x = -2
+		y = 1
+		relative_position_id = POL_fill_the_railways_gaps
+		cost = 5
+
+		available = {
+			date > 1938.01.01
+		}
+		
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				factor = 3
+				is_historical_focus_on = yes
+				has_completed_focus = POL_the_sanation_right
+				has_war = no
+			}
+		}
+
+		completion_reward = {
+            add_tech_bonus = {
+                name = industrial_bonus
+                bonus = 1
+                uses = 1
+                category = steel_tech
+            }
+			if = {
+				limit = { 
+					OR = {
+						controls_state = 88
+						any_other_country = {
+							is_subject_of = ROOT
+							controls_state = 88
+						} 
+					}
+				}
+				88 = {
+					add_resource = {
+						type = steel
+						amount = 6
+						state = 88
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 92 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STEEL}
+	}
+
 	focus = {
 		id = POL_national_defence_fund
 		icon = GFX_goal_generic_defence
@@ -9321,7 +9390,7 @@ focus_tree = {
 	##########
 	focus = {
 		id = POL_waza_king
-		icon = GFX_focus_POL_waza_house
+		icon = GFX_focus_POL_waza
 		prerequisite = { focus = POL_fulfil_fifth_of_november }
 		relative_position_id = POL_fulfil_fifth_of_november
 
@@ -9354,16 +9423,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			effect_tooltip = {
-				set_cosmetic_tag = POL_SWE_kingdom
-				add_country_leader_role = {
-					character = "POL_stefan_waza_king"
-					country_leader = {
-						ideology=oligarchism
-						traits = { }
-						expire="1965.1.1.1"
-					}
-					promote_leader = yes
+				limit = {
+					has_character = POL_stefan_ii_waza
 				}
+				promote_character = POL_stefan_ii_waza
 			}
 		}
 	}
@@ -10094,7 +10157,6 @@ focus_tree = {
 	focus = {
 		id = POL_rozbudowa
 		icon = GFX_focus_POL_develop_polish_shipbuilding
-		prerequisite = { focus = POL_invite_finland }
 		prerequisite = { focus = POL_litva_ty_chuju }
 		relative_position_id = POL_invite_finland
 

@@ -644,10 +644,11 @@
  nsb_news.12.a:0 "To ciekawe czasy."
  nsb_news.12.b:0 "Robi się coraz gorzej."
 
+ ### MOD STUFF
  NSB_poland_royal_election.6.t:0 "Ostatni Waza"
- NSB_poland_royal_election.6.desc:0 "" #3#
+ NSB_poland_royal_election.6.desc:0 ""
  NSB_poland_royal_election.6.a:0 "Mamy naszego króla!"
- NSB_poland_royal_election.6.b:0 "Niedorzeczność... Wazowie umarli bezpotomnie!"
+ NSB_poland_royal_election.6.b:0 "Niedorzeczność. Wazowie umarli bezpotomnie!"
 
  pavel_events.3.a:0 "Jeśli to zapobiegnie wojnie..."
  pavel_events.3.b:0 "To jakieś żarty? Nie!"
