@@ -1271,6 +1271,61 @@ focus_tree = {
 	}
 
 	focus = {
+		id = POL_modlin_fortress
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = POL_prepare_for_the_next_war }
+		available = {
+			10 = {
+				owns_or_subject_of = yes
+			}
+		}
+		
+		x = 7
+		y = 1
+		relative_position_id = POL_prepare_for_the_next_war
+		cost = 2.9
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 10 }
+				limit = {
+					free_building_slots = {
+						building = anti_air_building
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_Modlin_Fortress_1
+			}
+			10 = {
+				add_building_construction = {
+					type = bunker
+					province = 3544
+					level = 3
+					instant_build = yes
+				}
+			}
+			10 = {
+				add_building_construction = {
+					type = bunker
+					province = 524
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
 		id = POL_new_military_academy
 		icon = GFX_focus_generic_military_academy
 		prerequisite = { focus = POL_prepare_for_the_next_war }
@@ -9315,7 +9370,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_waza_house
-		icon = GFX_focus_POL_waza_king
+		icon = GFX_focus_POL_waza_house
 		prerequisite = { focus = POL_waza_king }
 		relative_position_id = POL_waza_king
 
@@ -9418,7 +9473,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_SWE_union
-		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		icon = GFX_goal_union_stockholm
 		prerequisite = { focus = POL_stockholm_riots }
 		prerequisite = { focus = POL_stockholm_gov }
 		relative_position_id = POL_waza_house
@@ -9486,44 +9541,10 @@ focus_tree = {
 	}
 
 	focus = {
-		id = POL_new_times
-		icon = GFX_focus_POL_waza_king
+		id = POL_return_classes
+		icon = GFX_focus_generic_population_growth
 		prerequisite = { focus = POL_SWE_complete_union }
 		relative_position_id = POL_SWE_complete_union
-
-		x = 0
-		y = 1
-		cost = 10
-		offset = {
-			x = 2
-			y = 0
-			trigger = {
-				has_country_flag = romanov_enabled
-			}
-		}
-
-		ai_will_do = {
-			factor = 2.5
-		}
-
-		available_if_capitulated = yes
-		
-		available = {
-			is_subject = no
-			has_government = neutrality
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = POL_return_classes
-		icon = GFX_focus_POL_waza_king
-		prerequisite = { focus = POL_new_times }
-		relative_position_id = POL_new_times
 
 		x = -2
 		y = 1
@@ -9589,7 +9610,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_house_identification
-		icon = GFX_goal_temporary
+		icon = GFX_focus_research
 		prerequisite = { focus = POL_aristocracy }
 		relative_position_id = POL_aristocracy
 
@@ -9623,7 +9644,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_aristocratic_values
-		icon = GFX_goal_temporary
+		icon = GFX_focus_generic_royal_wedding
 		prerequisite = { focus = POL_aristocracy }
 		relative_position_id = POL_aristocracy
 
@@ -9657,7 +9678,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_absolute_monarchism
-		icon = GFX_goal_temporary
+		icon = md_goal_monarchia_abs
 		prerequisite = { focus = POL_house_identification }
 		prerequisite = { focus = POL_aristocratic_values }
 		relative_position_id = POL_house_identification
@@ -9693,7 +9714,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_cult_of_leader
-		icon = GFX_goal_temporary
+		icon = GFX_focus_generic_strike_at_democracy1
 		prerequisite = { focus = POL_absolute_monarchism }
 		relative_position_id = POL_absolute_monarchism
 
@@ -9727,7 +9748,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_religion_stuff
-		icon = GFX_goal_temporary
+		icon = GFX_focus_generic_catholic_dominion
 		prerequisite = { focus = POL_absolute_monarchism }
 		relative_position_id = POL_absolute_monarchism
 
@@ -9761,7 +9782,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_cesarstwo_polsko_szwedzkie
-		icon = GFX_goal_temporary
+		icon = GFX_goal_pol_carat
 		prerequisite = { focus = POL_cult_of_leader }
 		prerequisite = { focus = POL_religion_stuff }
 		relative_position_id = POL_absolute_monarchism
@@ -9796,7 +9817,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_unify_szlachta
-		icon = GFX_goal_temporary
+		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = POL_democratic_monarchism }
 		relative_position_id = POL_cesarstwo_polsko_szwedzkie
 
@@ -9831,7 +9852,7 @@ focus_tree = {
 
 	focus = {
 		id = POL_democratic_monarchism
-		icon = GFX_goal_temporary
+		icon = GFX_goal_democratic_szlachta
 		prerequisite = { focus = POL_house_identification }
 		prerequisite = { focus = POL_aristocratic_values }
 		relative_position_id = POL_aristocratic_values
@@ -9868,10 +9889,426 @@ focus_tree = {
 	focus = {
 		id = POL_integrate_army
 		icon = GFX_focus_generic_combined_arms
-		prerequisite = { focus = POL_new_times }
-		relative_position_id = POL_new_times
+		prerequisite = { focus = POL_SWE_complete_union }
+		relative_position_id = POL_SWE_complete_union
 
 		x = 2
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_invest_laponia
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = POL_integrate_army }
+		relative_position_id = POL_integrate_army
+
+		x = -1
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_king_boys
+		icon = GFX_goal_king_boys
+		prerequisite = { focus = POL_integrate_army }
+		relative_position_id = POL_integrate_army
+
+		x = 1
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_litva_ty_chuju
+		icon = GFX_goal_litwa
+		prerequisite = { focus = POL_king_boys }
+		relative_position_id = POL_king_boys
+
+		x = 0
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_invite_finland
+		icon = GFX_focus_EST_national_pride_in_finland
+		prerequisite = { focus = POL_invest_laponia }
+		relative_position_id = POL_invest_laponia
+
+		x = 0
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_opanowanie_inflantow
+		icon = GFX_focus_LIT_reclaim_courland
+		prerequisite = { focus = POL_invite_finland }
+		prerequisite = { focus = POL_litva_ty_chuju }
+		relative_position_id = POL_invite_finland
+
+		x = 1
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_rozbudowa
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = POL_invite_finland }
+		prerequisite = { focus = POL_litva_ty_chuju }
+		relative_position_id = POL_invite_finland
+
+		x = 3
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_ogloszenie_hegemonii
+		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		prerequisite = { focus = POL_opanowanie_inflantow }
+		prerequisite = { focus = POL_absolute_monarchism }
+		relative_position_id = POL_opanowanie_inflantow
+
+		x = -1
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_dawny_wrog
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = POL_opanowanie_inflantow }
+		prerequisite = { focus = POL_absolute_monarchism }
+		relative_position_id = POL_opanowanie_inflantow
+
+		x = 1
+		y = 1
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_zachodnie_roszczenia
+		icon = GFX_focus_POL_polish_revanchism
+		prerequisite = { focus = POL_ogloszenie_hegemonii }
+		prerequisite = { focus = POL_dawny_wrog }
+		relative_position_id = POL_opanowanie_inflantow
+
+		x = 0
+		y = 2
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_zabezpieczenie_ingrii
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = POL_ogloszenie_hegemonii }
+		prerequisite = { focus = POL_dawny_wrog }
+		relative_position_id = POL_opanowanie_inflantow
+
+		x = 2
+		y = 2
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_mare_nostrum
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = POL_zachodnie_roszczenia }
+		prerequisite = { focus = POL_zabezpieczenie_ingrii }
+		prerequisite = { focus = POL_cesarstwo_polsko_szwedzkie }
+		relative_position_id = POL_SWE_complete_union
+
+		x = 0
+		y = 8
+		cost = 10
+		offset = {
+			x = 2
+			y = 0
+			trigger = {
+				has_country_flag = romanov_enabled
+			}
+		}
+
+		ai_will_do = {
+			factor = 2.5
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			is_subject = no
+			has_government = neutrality
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = POL_czwarty_rzym
+		icon = GFX_focusABDUL
+		prerequisite = { focus = POL_mare_nostrum }
+		relative_position_id = POL_mare_nostrum
+
+		x = 0
 		y = 1
 		cost = 10
 		offset = {
@@ -12584,7 +13021,7 @@ focus_tree = {
 	focus = {
 		id = POL_force_polish_upper_class
 		icon = GFX_goal_support_fascism
-		prerequisite = { focus = POL_divide_lit focus = POL_support_global_falangism }
+		prerequisite = { focus = POL_divide_lit focus = POL_support_global_falangism focus = POL_absolute_monarchism }
 		relative_position_id = POL_divide_lit
 
 		x = 2
@@ -13389,7 +13826,7 @@ focus_tree = {
 		relative_position_id = POL_declare_independence
 
 		x = 0
-		y = 2
+		y = 3
 		cost = 10
 		allow_branch = {
 			has_dlc = "No Step Back"
@@ -13440,7 +13877,7 @@ focus_tree = {
 		relative_position_id = POL_declare_independence
 
 		x = 1
-		y = 1
+		y = 2
 		cost = 10
 		allow_branch = {
 			has_dlc = "No Step Back"

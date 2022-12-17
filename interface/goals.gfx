@@ -7,8 +7,44 @@ spriteTypes = {
 	}
 
 	SpriteType = {
+		name = "GFX_goal_union_stockholm"
+		texturefile = "gfx/interface/goals/pol/md_goal_union_stockholm.dds"
+	}
+
+	SpriteType = {
 		name = "GFX_goal_central_industrial_region_strategy"
 		texturefile = "gfx/interface/goals/pol/md_goal_central_industrial_region_strategy.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_goal_pol_carat"
+		texturefile = "gfx/interface/goals/pol/md_goal_carat.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_focus_POL_waza_house"
+		texturefile = "gfx/interface/goals/pol/md_goal_waza_house.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_goal_king_boys"
+		texturefile = "gfx/interface/goals/pol/md_goal_king_boys.dds"
+	}
+
+	SpriteType = {
+	name = "GFX_goal_democratic_szlachta"
+	texturefile = "gfx/interface/goals/pol/md_goal_democratic_szlachta.dds"			
+	}
+
+	SpriteType = {
+	name = "GFX_goal_litwa"
+	texturefile = "gfx/interface/goals/pol/md_goal_litwa.dds"			
+	}
+
+
+	SpriteType = {
+	name = "md_goal_monarchia_abs"
+	texturefile = "gfx/interface/goals/pol/md_goal_monarchia_abs.dds"			
 	}
 
 	SpriteType = {
@@ -193,7 +229,7 @@ spriteTypes = {
 	SpriteType = {
 	name = "GFX_focus_generic_soviet_politics"
 	texturefile = "gfx/interface/goals/focus_generic_soviet_politics.dds"			
-	}	
+	}
 	
 	SpriteType = {
 	name = "GFX_focus_generic_strike_at_democracy3"
